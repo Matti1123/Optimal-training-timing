@@ -23,6 +23,6 @@ def filter_exercises(file_path, exercise_name):
         print(f"Ein Fehler ist aufgetreten: {e}")
         return None
 
-# Beispielaufruf:
-# result = filter_exercises("path/to/your/file.csv", "Lat Pulldown")
-# print(result)
+#Beispielaufruf
+result = filter_exercises("weightlifting_721_workouts.csv", "Lat Pulldown")
+print(result)
