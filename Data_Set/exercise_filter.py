@@ -24,9 +24,9 @@ def filter_exercises(file_path, exercise_name):
         return None
 
 # Beispielaufruf
-result = filter_exercises("weightlifting_721_workouts.csv", "Lat Pulldown")
+result = filter_exercises("Data_Set\weightlifting_721_workouts.csv", "Lat Pulldown")
 print(result)
+
 #ich würde gerne das result als csv datei speichern und eine neue datei erstellen
 
 result.to_csv("filtered_exercises.csv", index=False)
-
