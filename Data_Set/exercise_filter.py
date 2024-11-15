@@ -29,4 +29,4 @@ print(result)
 
 #ich würde gerne das result als csv datei speichern und eine neue datei erstellen
 
-result.to_csv("filtered_exercises.csv", index=False)
+result.to_csv("Data_Set/filtered_exercises.csv", index=False)
