@@ -1,28 +1,42 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.interpolate import make_interp_spline
+import pandas as pd
 
 # Datenpunkte
 data = np.array([[0, 1], [5, 0.8], [16, 0.6], [30, 0.7], [40, 0.8], [50, 0.9], [60, 1.0],
-                 [66, 1.03], [72, 1.04], [77, 1.03], [82, 1.02], [110, 1.0], [140, 0.99]])
+                 [66, 1.03], [72, 1.04], [77, 1.03], [82, 1.02], [110, 1.005], [140, 1]])
 x_data, y_data = data[:, 0], data[:, 1]
 
 # Spline-Interpolation für eine glatte Kurve
 x_smooth = np.linspace(x_data.min(), x_data.max(), 500)  # Glatte Werte für x
-spline = make_interp_spline(x_data, y_data, k=2)  # k=3 für kubische Spline-Interpolation
+spline = make_interp_spline(x_data, y_data, k=2) 
 y_smooth = spline(x_smooth)
 
 # Plot erstellen
 plt.figure(figsize=(10, 6))
 plt.plot(x_smooth, y_smooth, label="Interpolierte Kurve", color="blue")
 plt.scatter(x_data, y_data, color="red", label="Datenpunkte")
-plt.axhline(y=0.95, color='gray', linestyle='--', label="Asymptote (y=0.95)")
+plt.axhline(y=1, color='gray', linestyle='--', label="Ursprungsniveau")
 plt.title("Superkompensationskurve")
 plt.xlabel("Zeit")
 plt.ylabel("Leistung")
 plt.legend()
 plt.grid(True)
 plt.show()
+
+# Leistung zu jedem Zeitpunkt in % berechnen und in einer Tabelle speichern
+
+performance_percent = y_smooth *100  # Leistung in Prozent
+
+# Ergebnisse in einer Tabelle speichern
+results = pd.DataFrame({'Zeit[h]': x_smooth, 'Leistung[%]': performance_percent})
+
+# Tabelle anzeigen
+print(results)
+
+# Tabelle als CSV speichern
+results.to_csv('Data_Set\DatenAusInterpolatedPoints.csv', index=False)
 
 '''
 import numpy as np
@@ -57,6 +71,7 @@ plt.show()
 '''
 from scipy.optimize import curve_fit
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
 
 # Zielpunkte
