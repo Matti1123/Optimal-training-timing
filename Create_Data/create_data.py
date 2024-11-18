@@ -14,7 +14,7 @@ x3 = np.linspace(72, 140, 200)  # x-Werte für die Exponentialfunktion
 a = 53.577  # Aus der vorherigen Berechnung
 b = 0.1
 c = 1  # Der Grenzwert
-y3 = a * np.exp(-b * (x3 - 72)) + c  # Exponentialfunktion
+y3 = a * np.exp(-b * x3) + c  # Exponentialfunktion
 
 # Plot der drei Abschnitte
 plt.figure(figsize=(10, 6))
