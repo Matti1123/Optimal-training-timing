@@ -13,3 +13,4 @@ plt.ylabel('Value')
 plt.title('Data from DatenAusInterpolatedPoints')
 plt.grid(True)
 plt.show()
+

@@ -31,12 +31,20 @@ performance_percent = y_smooth *100  # Leistung in Prozent
 
 # Ergebnisse in einer Tabelle speichern
 results = pd.DataFrame({'Zeit[h]': x_smooth, 'Leistung[%]': performance_percent})
-
-# Tabelle anzeigen
 print(results)
-
-# Tabelle als CSV speichern
 results.to_csv('Data_Set\DatenAusInterpolatedPoints.csv', index=False)
+
+
+
+# Zufällige Punkte zwischen 0 und 140 generieren
+random_points = np.sort(np.random.uniform(0, 140, 10))
+
+# Entsprechende y-Werte aus y_smooth finden
+corresponding_y_values = np.interp(random_points, x_smooth, y_smooth)
+
+# Ergebnisse anzeigen
+for x, y in zip(random_points, corresponding_y_values):
+    print(f"Zeit: {x:.2f}, Leistung: {y:.4f}")
 
 '''
 import numpy as np
