@@ -7,7 +7,7 @@ y1 = -0.4 * np.sin(0.05 * x1) + 1  # Sinusfunktion
 
 # 2. Kurvenabschnitt: Parabel (48 bis 72 Stunden)
 x2 = np.linspace(48, 72, 100)  # x-Werte für die Parabel
-y2 = -(71 / 469200) * x2**2 + (1847 / 58650) * x2 - (866 / 1955)  # Parabel
+y2 = -(2756581 / 18768000000) * x2**2 + (143338793 / 4692000000) * x2 - (15568201 / 39100000)  # Parabel
 
 # 3. Kurvenabschnitt: Exponentialfunktion (72 bis 140 Stunden)
 x3 = np.linspace(72, 140, 200)  # x-Werte für die Exponentialfunktion
