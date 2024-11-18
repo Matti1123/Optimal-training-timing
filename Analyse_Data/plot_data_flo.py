@@ -1,4 +1,30 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.interpolate import make_interp_spline
 
+# Datenpunkte
+data = np.array([[0, 1], [5, 0.8], [16, 0.6], [30, 0.7], [40, 0.8], [50, 0.9], [60, 1.0],
+                 [66, 1.03], [72, 1.04], [77, 1.03], [82, 1.02], [110, 1.0], [140, 0.99]])
+x_data, y_data = data[:, 0], data[:, 1]
+
+# Spline-Interpolation für eine glatte Kurve
+x_smooth = np.linspace(x_data.min(), x_data.max(), 500)  # Glatte Werte für x
+spline = make_interp_spline(x_data, y_data, k=2)  # k=3 für kubische Spline-Interpolation
+y_smooth = spline(x_smooth)
+
+# Plot erstellen
+plt.figure(figsize=(10, 6))
+plt.plot(x_smooth, y_smooth, label="Interpolierte Kurve", color="blue")
+plt.scatter(x_data, y_data, color="red", label="Datenpunkte")
+plt.axhline(y=0.95, color='gray', linestyle='--', label="Asymptote (y=0.95)")
+plt.title("Superkompensationskurve")
+plt.xlabel("Zeit")
+plt.ylabel("Leistung")
+plt.legend()
+plt.grid(True)
+plt.show()
+
+'''
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -25,6 +51,8 @@ plt.ylabel("Leistung")
 plt.legend()
 plt.grid(True)
 plt.show()
+'''
+
 
 '''
 from scipy.optimize import curve_fit
