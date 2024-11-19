@@ -10,7 +10,6 @@ end_date = datetime.now()
 min_weight = 60  # Startgewicht in kg
 target_weight = 140  # Zielgewicht am Ende
 total_entries = 400  # Anzahl der Einträge
-frequency_per_week = random.choice([2, 3])  # 2-3 Mal pro Woche
 
 # Liste zur Speicherung der Daten
 data = []

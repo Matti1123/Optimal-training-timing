@@ -23,10 +23,8 @@ def filter_exercises(file_path, exercise_name):
         print(f"Ein Fehler ist aufgetreten: {e}")
         return None
 
-# Beispielaufruf
+# Aufruf
 result = filter_exercises("Versuche\weightlifting_721_workouts.csv", "Lat Pulldown")
 print(result)
-
-#ich würde gerne das result als csv datei speichern und eine neue datei erstellen
 
 result.to_csv("Data_Set/filtered_exercises.csv", index=False)
