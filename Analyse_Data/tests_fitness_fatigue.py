@@ -8,6 +8,7 @@ k2 = 2       # Gewichtung für Müdigkeit (größer, um Ermüdung stärker zu ge
 tau1 = 42  # Zeitkonstante für Fitness (längere Erholung)
 tau2 = 7     # Zeitkonstante für Müdigkeit (schneller Abbau)
 
+<<<<<<< HEAD
 n = np.arange(0, 30)
 w = np.zeros(30)  # Trainingseinheiten
 w[0] = 1
@@ -22,6 +23,24 @@ w[6] = 1
 w[12] = 1
 w[15] = 0.8
 >>>>>>> 500ad79a130f97d55deb74ed2e0d648ddc6e73fb
+=======
+
+n = np.arange(0, 100)
+w = np.zeros(100)  # Trainingseinheiten
+# hier eine liste die die bei null startet mit 100 elementen und immer zeitabstände von 1-14 tagen hat
+# Trainingseinheiten
+
+def generate_training_schedule(intervals, length=100):
+    w = np.zeros(length)
+    for interval in intervals:
+        for i in range(interval, length, interval):
+            w[i] = 1
+    return w
+
+# Beispiel: Trainingseinheiten alle 10 Tage
+intervals = [np.random.randint(1, 15)]
+w = generate_training_schedule(intervals)
+>>>>>>> 7b073da05bf95cdb7f9e8427e827f36fb3dea8de
 
 # Fitness, Müdigkeit und Performance berechnen
 y1_fitness = k1 * np.array([sum(w[i] * np.exp(-(n_j - i) / tau1) for i in range(n_j)) for n_j in n])
@@ -39,8 +58,8 @@ plt.plot(n, y3_performance, label="Performance (p_n)", color="green", linewidth=
 plt.axhline(p_star, label="Baseline (p*)", color="yellow", linestyle="--")
 
 # Markierung des Maximums
-plt.scatter(max_index, max_value, color="purple", label=f"Max. Leistung (p_n) bei Tag {max_index}: {max_value:.2f}")
-print(max_index, max_value + 2, f"({max_index}, {max_value:.2f})")
+"""plt.scatter(max_index, max_value, color="purple", label=f"Max. Leistung (p_n) bei Tag {max_index}: {max_value:.2f}")
+print(max_index, max_value + 2, f"({max_index}, {max_value:.2f})")"""
 
 # Diagrammbeschriftung
 plt.xlabel("Zeit in Tagen")
