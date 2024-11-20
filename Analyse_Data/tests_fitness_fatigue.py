@@ -11,9 +11,9 @@ tau2 = 7     # Zeitkonstante für Müdigkeit (schneller Abbau)
 n = np.arange(0, 100)
 w = np.zeros(100)  # Trainingseinheiten
 w[0] = 1
-w[10] = 1
-w[20] = 1
-w[30] = 1
+#w[10] = 1
+#w[20] = 1
+#w[30] = 1
 
 # Fitness, Müdigkeit und Performance berechnen
 y1_fitness = k1 * np.array([sum(w[i] * np.exp(-(n_j - i) / tau1) for i in range(n_j)) for n_j in n])
