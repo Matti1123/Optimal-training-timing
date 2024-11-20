@@ -13,7 +13,7 @@ x_smooth = np.linspace(x_data.min(0), x_data.max(), 500)  # Glatte Werte für x
 spline = make_interp_spline(x_data, y_data, k=2) 
 y_smooth = spline(x_smooth)
 
-'''# Plot erstellen
+# Plot erstellen
 plt.figure(figsize=(10, 6))
 plt.plot(x_smooth, y_smooth, label="Interpolierte Kurve", color="blue")
 plt.scatter(x_data, y_data, color="red", label="Datenpunkte")
@@ -23,7 +23,7 @@ plt.xlabel("Zeit")
 plt.ylabel("Leistung")
 plt.legend()
 plt.grid(True)
-plt.show()'''
+plt.show()
 
 # Leistung zu jedem Zeitpunkt in % berechnen und in einer Tabelle speichern
 
@@ -36,7 +36,7 @@ results.to_csv('Data_Set\DatenAusInterpolatedPoints.csv', index=False)
 
 
 
-# Zufällige Punkte zwischen 0 und 140 generieren
+'''# Zufällige Punkte zwischen 0 und 140 generieren
 random_points = np.sort(np.random.uniform(0, 140, 10))
 
 # Entsprechende y-Werte aus y_smooth finden
@@ -45,7 +45,7 @@ corresponding_y_values = np.interp(random_points, x_smooth, y_smooth)
 # Ergebnisse anzeigen
 for x, y in zip(random_points, corresponding_y_values):
     print(f"Zeit: {x:.2f}, Leistung: {y:.4f}")
-
+'''
 
 
 '''
