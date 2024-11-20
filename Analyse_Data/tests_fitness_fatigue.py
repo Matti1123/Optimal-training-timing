@@ -4,17 +4,24 @@ import matplotlib.pyplot as plt
 # Parameter
 p_star = 80  # Basisleistungsniveau
 k1 = 1       # Gewichtung für Fitness
-k2 = 3       # Gewichtung für Müdigkeit (größer, um Ermüdung stärker zu gewichten)
+k2 = 2       # Gewichtung für Müdigkeit (größer, um Ermüdung stärker zu gewichten)
 tau1 = 42  # Zeitkonstante für Fitness (längere Erholung)
 tau2 = 7     # Zeitkonstante für Müdigkeit (schneller Abbau)
 
-n = np.arange(0, 30*24)
-w = np.zeros(30*24)  # Trainingseinheiten
+n = np.arange(0, 30)
+w = np.zeros(30)  # Trainingseinheiten
 w[0] = 1
+<<<<<<< HEAD
 w[48] = 1
 w[96] = 1
 w[150] = 1
 w[190] = 1
+=======
+w[3] = 1
+w[6] = 1
+w[12] = 1
+w[15] = 0.8
+>>>>>>> 500ad79a130f97d55deb74ed2e0d648ddc6e73fb
 
 # Fitness, Müdigkeit und Performance berechnen
 y1_fitness = k1 * np.array([sum(w[i] * np.exp(-(n_j - i) / tau1) for i in range(n_j)) for n_j in n])
