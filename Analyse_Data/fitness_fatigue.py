@@ -1,52 +1,51 @@
 import numpy as np
-import matplotlib.pyplot as plt
+def fitness_fatigue(p_star:float = 100,k1:float = 1,k2:float = 2,tau1:float = 42,tau2:float=7,w:np.array = np.zeros(100))->tuple[np.array]:
+    """
+    Berechnet die Fitness, Müdigkeit und Performance eines Athleten
+    Args:
+        p_star (float): Basisleistungsniveau
+        k1 (float): Gewichtung für Fitness
+        k2 (float): Gewichtung für Müdigkeit
+        tau1 (float): Zeitkonstante für Fitness
+        tau2 (float): Zeitkonstante für Müdigkeit
+        w (np.array): Belastungsvektor
+    Returns:
+        y1_fitness (np.array): Fitness
+        y2_fatigue (np.array): Müdigkeit
+        y3_performance (np.array): Performance
+        """
+    n = np.arange(len(w))
 
-# Parameter für das Fitness-Fatigue-Modell
-P0 = 1.0  # Ausgangsleistung
-k1 = 0.9  # Gewicht für Fitness
-k2 = 1.2  # Gewicht für Fatigue
-tau_F = 42  # Zeitkonstante für Fitness (in Tagen)
-tau_D = 7   # Zeitkonstante für Fatigue (in Tagen)
+    # Fitness, Müdigkeit und Performance berechnen
+    y1_fitness = k1 * np.array([sum(w[i] * np.exp(-(n_j - i) / tau1) for i in range(n_j)) for n_j in n])
+    y2_fatigue = k2 * np.array([sum(w[i] * np.exp(-(n_j - i) / tau2) for i in range(n_j)) for n_j in n])
+    y3_performance = p_star + y1_fitness - y2_fatigue
 
-# Trainingsbelastung (Beispieldaten: [Tag, Belastung])
-training_sessions = np.array([
-    [0, 1.0],
-    [5, 0.8],
-    [10, 1.2],
-    [15, 1.0],
-    [20, 1.5],
-])
+    return y1_fitness,y2_fatigue,y3_performance
 
-# Zeitachse (in Tagen)
-t = np.linspace(0, 50, 500)  # Von Tag 0 bis 50
 
-# Fitness- und Fatigue-Funktionen
-def fitness_effect(t, sessions, tau_F):
-    return np.sum([T * np.exp(-(t - t_i) / tau_F) * (t >= t_i) for t_i, T in sessions], axis=0)
+# max_index = np.argmax(y3_performance)  # Index des Maximums
+# max_value = y3_performance[max_index]  # Maximalwert
+# # Plot der Ergebnisse
+# plt.plot(n, p_star + y1_fitness, label="Fitness (F)", color="blue", linestyle="--")
+# plt.plot(n, p_star - y2_fatigue, label="Müdigkeit (M)", color="red", linestyle="--")
+# plt.plot(n, y3_performance, label="Performance (p_n)", color="green", linewidth=2)
+# plt.axhline(p_star, label="Baseline (p*)", color="yellow", linestyle="--")
 
-def fatigue_effect(t, sessions, tau_D):
-    return np.sum([T * np.exp(-(t - t_i) / tau_D) * (t >= t_i) for t_i, T in sessions], axis=0)
+# # Markierung des Maximums
+# """plt.scatter(max_index, max_value, color="purple", label=f"Max. Leistung (p_n) bei Tag {max_index}: {max_value:.2f}")
+# print(max_index, max_value + 2, f"({max_index}, {max_value:.2f})")"""
 
-# Fitness und Fatigue berechnen
-F_t = fitness_effect(t, training_sessions, tau_F)
-D_t = fatigue_effect(t, training_sessions, tau_D)
+# # Diagrammbeschriftung
+# plt.xlabel("Zeit in Tagen")
+# plt.ylabel("Leistung")
+# plt.title("Fatigue-Fitness-Modell: Nettoleistung, Fitness und Müdigkeit")
+# #plt.savefig("Analyse_Data\tests_fitness_fatigue.py")
+# plt.legend()
+# plt.grid(True)
 
-# Leistung berechnen
-P_t = P0 + k1 * F_t - k2 * D_t
+# # Diagramm anzeigen
+# plt.show()
 
-# Plot erstellen
-plt.figure(figsize=(12, 6))
-plt.plot(t, P_t, label="Leistung (P(t))", color="blue", linewidth=2)
-plt.plot(t, F_t, label="Fitness (F(t))", color="green", linestyle="--")
-plt.plot(t, D_t, label="Fatigue (D(t))", color="red", linestyle="--")
-
-# Trainingstage markieren
-for t_i, T in training_sessions:
-    plt.axvline(x=t_i, color="gray", linestyle=":", alpha=0.7)
-
-plt.title("Fitness-Fatigue-Modell")
-plt.xlabel("Zeit (Tage)")
-plt.ylabel("Leistung")
-plt.legend()
-plt.grid(True)
-plt.show()
+# # Maximalwert ausgeben
+# print(f"Maximale Leistung: {max_value:.2f} bei Tag {max_index}")
