@@ -38,7 +38,7 @@ plt.text(max_index, max_value + 2, f"({max_index}, {max_value:.2f})", color="pur
 plt.xlabel("Zeit in Tagen")
 plt.ylabel("Leistung")
 plt.title("Fatigue-Fitness-Modell: Nettoleistung, Fitness und Müdigkeit")
-#plt.savefig("\Analyse_Data")
+#plt.savefig("Analyse_Data\tests_fitness_fatigue.py")
 plt.legend()
 plt.grid(True)
 
