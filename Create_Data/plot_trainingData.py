@@ -16,4 +16,5 @@ plt.title('Training Data Plot')
 plt.legend()
 plt.grid(True)
 plt.show()
-save_fig = 'Data_Set/training_ip.png'
+'Data_Set/training_ip.png'
+plt.savefig('Data_Set/training_ip.png')
