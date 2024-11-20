@@ -8,8 +8,8 @@ k2 = 3       # Gewichtung für Müdigkeit (größer, um Ermüdung stärker zu ge
 tau1 = 42  # Zeitkonstante für Fitness (längere Erholung)
 tau2 = 7     # Zeitkonstante für Müdigkeit (schneller Abbau)
 
-n = np.arange(0, 30*24)
-w = np.zeros(30*24)  # Trainingseinheiten, 30 Tage * 24 Stunden
+n = np.arange(0, 100)
+w = np.zeros(100)  # Trainingseinheiten, 30 Tage * 24 Stunden
 w[0] = 1  # Erste Trainingseinheit
 
 # Generiere 99 zufällige Trainingseinheiten (1-24 Stunden Erhöhung)
