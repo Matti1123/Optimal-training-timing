@@ -27,5 +27,5 @@ plt.plot(n, p_star +y1_fitness -y1_fitness, label="Baseline", color="yellow", li
 plt.xlabel("Tage")
 plt.ylabel("Wert")
 plt.legend()
-plt.savefig("C:\\Users\\flets\\OneDrive\\Documents\\Semester_3\\Optimal_training_timing\\Analyse Data\\graph1.jpg")
+#plt.savefig("C:\\Users\\flets\\OneDrive\\Documents\\Semester_3\\Optimal_training_timing\\Analyse Data\\graph1.jpg")
 plt.show()
