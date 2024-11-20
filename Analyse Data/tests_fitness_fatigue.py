@@ -12,7 +12,9 @@ n = np.arange(0, 50)
 #w = np.random.randint(0, 2, 50)
 w = np.zeros(50)
 w[0] = 1
-w[20] = 1
+w[2] = 1
+w[4] = 1
+w[6] = 1
 #print(w)
 y1_fitness = k1 * np.array([sum(w[i] * np.exp(-(n_j-i)/tau1) for i in range(n_j)) for n_j in n])
 y2_fatigue = k2 * np.array([sum(w[i] * np.exp(-(n_j-i)/tau2) for i in range(n_j)) for n_j in n])
