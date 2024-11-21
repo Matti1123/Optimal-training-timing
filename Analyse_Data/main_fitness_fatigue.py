@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 from fitness_fatigue import fitness_fatigue
 
-def populate_training_entries_random(w, max_ones=100, max_step=24, min_step=1):
+def populate_training_entries_random(w, max_ones=100, max_step=24, min_step=1,train_gain=0.05):
     index = 0
     count = 0
     while count < max_ones and index < len(w):
