@@ -19,8 +19,8 @@ y3 = a * np.exp(-b * x3) + c
 # Plot der drei Abschnitte
 plt.figure(figsize=(10, 6))
 plt.plot(x1, y1, label="Sinus (0-48 Stunden)", color="blue")
-plt.plot(x2, y2, label="Parabel (48-72 Stunden)", color="blue")
-plt.plot(x3, y3, label="Exponentialfunktion (72-140 Stunden)", color="blue")
+plt.plot(x2, y2, label="Parabel (48-72 Stunden)", color="red")
+plt.plot(x3, y3, label="Exponentialfunktion (72-140 Stunden)", color="green")
 
 # Achsen und Titel
 plt.axhline(y=1, color="gray", linestyle="--", label="Grenzwert: 1")
