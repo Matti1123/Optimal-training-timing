@@ -4,7 +4,7 @@ import random
 # Original CSV laden
 df = pd.read_csv('Data_Set\DatenAusInterpolatedPoints.csv')
 
-# Die Reihe 260 (mit +/- 60) extrahieren
+# Die Reihe 260 (mit +/- 90) extrahieren
 base_row = 260
 min_row = max(0, base_row - 90)
 max_row = min(len(df), base_row + 90)
@@ -15,10 +15,10 @@ new_data.append([0, 80])  # Beginn bei 0h und 80kg
 training_timeadded = 0
 
 # Zufällige Auswahl von Trainingsdaten für die nächsten Stunden
-for i in range(1, 100):  # Hier definierst du die Anzahl der Zeilen (z.B. 100 Zeilen)
+for i in range(1, 100):  # Anzahl der Zeilen
     random_row = random.randint(min_row, max_row)
-    training_time = df.iloc[random_row]['Zeit[h]']  # Angenommen, die Zeit ist in der Spalte 'Trainingszeit'
-    performance = df.iloc[random_row]['Leistung[%]']  # Angenommen, die Leistung ist in der Spalte 'Leistung'
+    training_time = df.iloc[random_row]['Zeit[h]']  
+    performance = df.iloc[random_row]['Leistung[%]'] 
     
     # Berechnung des Gewichtfaktors
     factor = performance / 100

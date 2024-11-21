@@ -30,7 +30,7 @@ def Zunahme_und_Zeit(data):
     })
     return combined_data
     
-print(Zunahme_und_Zeit(data))
+#print(Zunahme_und_Zeit(data))
 
 def best_moment_to_train(data):
     best_moment = data['Gewichtszunahme'].idxmax()
