@@ -16,3 +16,5 @@ st.write("""
 # Ein Button, um interaktive Elemente hinzuzufügen
 if st.button('Mehr erfahren'):
     st.write("Das ideale Trainingstiming hängt von verschiedenen Faktoren ab, z.B. Tageszeit, Ernährung und Schlaf.")
+
+# Hier sollte im weiteren Verlauf unseres projektes die Funktionen eingebunden werden, die die Daten auswerten und visualisieren.Um damit die Nutzer:innen zu unterstützen, den optimalen Zeitpunkt für ihr Training zu finden.

@@ -7,7 +7,7 @@ def populate_training_entries_random(w, max_ones=100, max_step=24, min_step=1):
     index = 0
     count = 0
     while count < max_ones and index < len(w):
-        w[index] = 1  # Setze eine 1 an der aktuellen Position
+        w[index] = 1   # Setze eine 1 an der aktuellen Position
         count += 1
         step = np.random.randint(min_step, max_step) if max_step > min_step else min_step  # Zufälliger Abstand zwischen 1 und 28
         index += step  # Bewege den Index um den zufälligen Schritt weiter
@@ -29,6 +29,8 @@ w = np.concatenate((w1, w2), axis=0)
 # w[0] = 1
 p_star = 100
 n = np.arange(len(w))
+
+
 fitness,fatigue,performance = fitness_fatigue(p_star = p_star,w = w)
 
 
