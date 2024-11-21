@@ -1,3 +1,3 @@
 # Time Pro
-<<<<<<< HEAD
+s
 
